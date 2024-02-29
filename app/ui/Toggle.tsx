@@ -1,10 +1,12 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "../globals.css";
+import AddItemList from './AddItemList';
+import { openContext } from '../context/styleContext';
 
 export default function Toggle() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [ isOpen, setIsOpen ] = useState("");
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -14,9 +16,9 @@ export default function Toggle() {
     <div
       className="Main-LeftVar"
       style={{
-        width: isOpen ? "20%" : "2%",
+        width: isOpen ? "20vw" : "2vw",
         display: "flex",
-        height: "100%",
+        height: "100vh",
         backgroundColor: "#434343",
         overflow: "hidden",
       }}
@@ -30,7 +32,7 @@ export default function Toggle() {
           height: "100%",
         }}
       >
-        {/* <AddItemList isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+        {/* <AddItemList /> */}
         <button
           onClick={handleToggle}
           style={{ backgroundColor: "#434343", fontSize: "2vw" }}
