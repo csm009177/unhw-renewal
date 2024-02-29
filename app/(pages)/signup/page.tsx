@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import "/app/globals.css";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
+  const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +23,7 @@ export default function SignUp() {
       });
       const data = await response.json();
       setMessage(data.message);
+      router.push('/login')
     } catch (error) {
       console.error("Error signing up:", error);
       setMessage("회원가입 중 오류가 발생했습니다.");
