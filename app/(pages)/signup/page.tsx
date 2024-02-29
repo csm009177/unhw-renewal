@@ -11,7 +11,7 @@ export default function SignUp() {
   const [message, setMessage] = useState("");
   const router = useRouter()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     try {
       const response = await fetch("/signupForm", {
