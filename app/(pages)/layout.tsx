@@ -9,17 +9,17 @@ interface ChildrenProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: ChildrenProps) {
+export default function Layout({ children }: ChildrenProps) {
   const [showToggle, setShowToggle] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
     console.log(token)
-    if (pathname === "/") {
+    if (token&& pathname === "/") {
       setShowToggle(true);
     }
-  }, [pathname]);
+  },[showToggle, pathname]);
 
   return (
     <>
