@@ -4,8 +4,7 @@ import Link from "next/link";
 import "../globals.css";
 import Toggle from "../ui/Toggle";
 import { useEffect, useState } from "react";
-
-
+import Lobby from "./lobby/page";
 
 export default function MainPage(): JSX.Element {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,7 +16,7 @@ export default function MainPage(): JSX.Element {
     
     // 가져온 토큰이 있으면 표시하고 없으면 null을 반환합니다.
     if (token) {
-      console.log('토큰:', token);
+      console.log('토큰 : ', token);
       return token;
     } else {
       console.log('토큰이 없습니다.');
@@ -32,11 +31,7 @@ export default function MainPage(): JSX.Element {
   
   return (
     <div>
-      {token ? (
-        <Toggle />
-      ) : (
-        <p>로그인 하삼.</p>
-      )}
+      {token ? <Toggle /> : <Lobby/>}
     </div>
   );
 }

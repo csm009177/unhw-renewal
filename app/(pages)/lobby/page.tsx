@@ -1,12 +1,14 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "/app/globals.css";
+import UrlButton from "../../ui/UrlButton";
 
-export default function LobbyPage() {
+export default function Lobby() {
   return (
-    <div className="LobbyPage">
-      Lobby Page
-    </div>
+    <>
+      <UrlButton url={"/login"} title={"login"} />
+      <UrlButton url={"/sigup"} title={"sigup"} />
+    </>
   );
 }
