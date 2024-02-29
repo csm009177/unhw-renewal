@@ -10,20 +10,16 @@ interface ChildrenProps {
 }
 
 export default function Layout({ children }: ChildrenProps) {
-  const [showToggle, setShowToggle] = useState(false);
-  const pathname = usePathname();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
-    console.log(token)
-    if (token&& pathname === "/") {
-      setShowToggle(true);
-    }
-  },[showToggle, pathname]);
+    setIsLoggedIn(!!token); // 토큰이 존재하면 true, 아니면 false로 설정
+  }, [isLoggedIn]);
 
   return (
     <>
-      {showToggle ? <Toggle /> : null}
+      {isLoggedIn ? <Toggle /> : null}
       {children}
     </>
   );
