@@ -30,8 +30,8 @@ export default function MainPage(): JSX.Element {
   }, [token]);
   
   return (
-    <div>
+    <>
       {token ? <Toggle /> : <Lobby/>}
-    </div>
+    </>
   );
 }
