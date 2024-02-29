@@ -40,12 +40,12 @@ app.prepare().then(() => {
 
  // 로그인 엔드포인트 
   server.post("/loginForm", (req, res) => {
-    const { Identification, password } = req.body;
+    const { id, pw } = req.body;
 
     const query = "SELECT * FROM users WHERE id = ? AND pw = ? ";
     connection.query(
       query,
-      [Identification, password],
+      [id, pw],
       (err, results, fields) => {
         if (err) {
           console.error("Error logging in:", err);
